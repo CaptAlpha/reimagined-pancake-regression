@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Ad Click Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css' ) }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict AD Click</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+     <!-- ['year', 'C18', 'int_hour', 'device_model', 'banner_pos', 'month', 'C16',
+       'device_type', 'C20', 'is_weekend', 'app_category', 'site_domain',
+       'day', 'app_domain', 'is_weekday', 'device_conn_type', 'C1', 'C17',
+       'C14', 'C15', 'C19', 'site_category', 'C21']-->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="year" placeholder="Year" required="required" />
+        <input type="text" name="C18" placeholder="C18" required="required" />
+		<input type="text" name="int_hour" placeholder="Hour" required="required" />
+		<input type="text" name="device_model" placeholder="Device Model" required="required" />
+		<input type="text" name="banner_pos" placeholder="Banner Position" required="required" />
+		<input type="text" name="month" placeholder="Month" required="required" />
+		<input type="text" name="C16" placeholder="C16" required="required" />
+		<input type="text" name="device_type" placeholder="device_type" required="required" />
+		<input type="text" name="C20" placeholder="C20" required="required" />
+		<input type="text" name="app_category" placeholder="app_category" required="required" />
+		<input type="text" name="site_domain" placeholder="site_domain" required="required" />
+		<input type="text" name="day" placeholder="day" required="required" />
+		<input type="text" name="is_weekday" placeholder="is_weekday" required="required" />
+		<input type="text" name="device_conn_type" placeholder="device_conn_type" required="required" />
+		<input type="text" name="C1" placeholder="C1" required="required" />
+		<input type="text" name="C17" placeholder="C17" required="required" />
+		<input type="text" name="C14" placeholder="C14" required="required" />
+		<input type="text" name="C15" placeholder="C15" required="required" />
+		<input type="text" name="C19" placeholder="C19" required="required" />
+		<input type="text" name="site_category" placeholder="site_category" required="required" />
+		<input type="text" name="C21" placeholder="C21" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
